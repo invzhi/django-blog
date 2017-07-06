@@ -1,0 +1,29 @@
+{% extends 'article/base.html' %}{% load markdown2html %}{% load markdown2toc %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+  <div class="card">
+    <div class="card-block article">
+      <h1 class="card-title">{{ article.title }}</h1>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <span class="badge badge-primary">{{ article.first_commit|date:'M j, Y' }}</span>
+        {% for tag in article.tags.all %}
+          <a class="badge badge-default" href="{% url 'article:index' %}?tag={{ tag.name }}">{{ tag.name }}</a>
+        {% endfor %}
+      </h6>
+      <div class="card-text">
+        {{ article.content|markdown2html }}
+      </div>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last Modified: {{ article.last_modified|date:'M j, Y' }}</small>
+    </div>
+  </div>
+{% endblock %}
+{% block sidebar %}
+  <div class="card toc">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item card-list-title">Content</li>
+      {{ article.content|markdown2toc }}
+    </ul>
+  </div>
+{% endblock %}

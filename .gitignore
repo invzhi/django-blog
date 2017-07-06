@@ -1,0 +1,4 @@
+/venv/
+/.idea/
+/mysite/article/migrations/*
+*.pyc

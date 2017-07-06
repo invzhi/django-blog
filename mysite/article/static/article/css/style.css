@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+}
+
+.card {
+  margin-left: 10px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.card-list-title {
+  background-color: #f7f7f9;
+  font-weight: bold;
+}
+
+.article {
+  padding: 30px;
+}
+
+.toc {
+  position: sticky;
+  top: 10px;
+}
