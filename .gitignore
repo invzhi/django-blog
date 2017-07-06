@@ -1,4 +1,5 @@
 *.pyc
 /mysite/article/migrations/*
+/mysite/static/
 /venv/
 /.idea/
