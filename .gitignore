@@ -1,4 +1,5 @@
 *.pyc
+*.json
 /mysite/article/migrations/*
 /mysite/static/
 /venv/
