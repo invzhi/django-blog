@@ -1,7 +1,6 @@
 from django.http import QueryDict
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import HttpResponseRedirect
 
 from .models import Article, Tag
 
@@ -94,4 +93,4 @@ def about(request):
         # 'tags': tags,
     # }
     # return render(request, 'article/about.html', context)
-    return HttpResponseRedirect('https://about.me/invzhi')
+    return redirect('https://about.me/invzhi')
