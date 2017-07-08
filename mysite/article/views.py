@@ -17,7 +17,7 @@ def index(request):
     # tag
     tag_name = request.GET.get('tag')
     # page
-    page = request.GET.get('page')
+    page = request.GET.get('page') or 1
 
     if tag_name is None:
         articles = Article.objects.all()
@@ -40,15 +40,12 @@ def index(request):
 
     paginator = Paginator(articles, per_page)
 
-    if page is None:
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
         articles = paginator.page(1)
-    else:
-        try:
-            articles = paginator.page(page)
-        except PageNotAnInteger:
-            articles = paginator.page(1)
-        except EmptyPage:
-            articles = paginator.page(paginator.num_pages)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
 
     q = request.GET.urlencode()
     q = QueryDict(q, mutable=True)
