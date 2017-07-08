@@ -24,3 +24,6 @@ class Article(models.Model):
 
     def summary(self):
         return self.content[:self.content.find('\n')]
+
+    def reading_time(self):
+        return len(self.content) // 1000

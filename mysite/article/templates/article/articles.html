@@ -15,7 +15,7 @@
         <a href="{% url 'article:detail' article.id %}" class="card-link">Detail</a>
       </div>
       <div class="card-footer">
-        <small class="text-muted">{{ article.first_commit|date:'M j, Y' }}</small>
+        <small class="text-muted">{{ article.first_commit|date:'M j, Y' }} · {{ article.reading_time }} min read</small>
       </div>
     </div>
   {% empty %}
