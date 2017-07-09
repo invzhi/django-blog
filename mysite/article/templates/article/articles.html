@@ -77,39 +77,5 @@
       {% endfor %}
     </ul>
   </div>
-  <div class="card">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item card-list-title">invzhi</li>
-      <li class="list-group-item">
-        <a href="https://github.com/invzhi">
-          GitHub
-        </a>
-      </li>
-      <li class="list-group-item">
-        <a href="https://twitter.com/invzhi">
-          Twitter
-        </a>
-      </li>
-      <li class="list-group-item">
-        <a href="mailto:invzhi@protonmail.com">
-          Email
-        </a>
-      </li>
-      <li class="list-group-item">
-        <a href="{% url 'article:about' %}">
-          More
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="card">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item card-list-title">Link</li>
-      <li class="list-group-item">
-        <a href="http://leezoom.xyz/">
-          Lee
-        </a>
-      </li>
-    </ul>
-  </div>
+  {% include 'article/includes/links.html' %}
 {% endblock %}

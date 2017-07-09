@@ -1,9 +1,32 @@
-{% extends 'article/base.html' %}
+{% extends 'article/base.html' %}{% load markdown2html %}
 {% block title %}About{% endblock %}
 {% block content %}
-  <h1>TODO.</h1>
-  it is body
+  <div class="card">
+    <div class="card-block article">
+      <h1 class="card-title">About me</h1>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <a class="badge badge-primary" href="https://about.me/invzhi">about.me</a>
+      </h6>
+      <div class="card-text">
+        <p>invzhi / 1997，热爱 Python 和 Go。</p>
+        <h2>主要作品</h2>
+        <ul>
+          <li><a href="https://github.com/invzhi/snake">snake (C)</a>：基于终端的贪吃蛇小游戏</li>
+        </ul>
+        <h2>本站</h2>
+        <p>本站的后端框架为 Django，架设在 Digital Ocean 服务器上。</p>
+        <p>如果你是学生，可以考虑 <a href="https://education.github.com/pack">GitHub 学生包</a>，或者通过我的 Referral 链接获取 <a href="https://m.do.co/c/82943833ea90">Digital Ocean</a> 的 $10。</p>
+        <h2>利器</h2>
+        <ul>
+          <li>操作系统：Ubuntu</li>
+        </ul>
+      </div>
+    </div>
+    <!--<div class="card-footer">-->
+      <!--<small class="text-muted">Last Modified: {{ article.last_modified|date:'M j, Y' }}</small>-->
+    <!--</div>-->
+  </div>
 {% endblock %}
 {% block sidebar %}
-it is sidebar
+  {% include 'article/includes/links.html' %}
 {% endblock %}
