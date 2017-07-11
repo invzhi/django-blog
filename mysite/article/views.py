@@ -1,3 +1,4 @@
+from django.views import generic
 from django.http import QueryDict
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -66,15 +67,13 @@ def index(request):
     return render(request, 'article/articles.html', context)
 
 
-def detail(request, article_id):
-    article = get_object_or_404(Article, pk=article_id)
-    updated_views = article.views + 1
-    Article.objects.filter(pk=article_id).update(views=updated_views)
-    context = {
-        'article': article,
-        'tags': tags,
-    }
-    return render(request, 'article/detail.html', context)
+class ArticleDetail(generic.DetailView):
+    model = Article
+
+    def get(self, request, *args, **kwargs):
+        response = super(ArticleDetail, self).get(self, request, *args, **kwargs)
+        self.object.increase_views()
+        return response
 
 
 def search(request):
