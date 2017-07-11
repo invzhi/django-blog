@@ -1,5 +1,6 @@
 .codehilite .hll { background-color: #ffffcc }
-.codehilite  { background: #f0f3f3; }
+.codehilite  { margin: 25px 0; border-radius: 4px; border: 1px solid #EAEAEA; background: #f0f3f3; }
+.codehilite pre { margin: 15px 20px; font-family: "Fira Mono", Consolas, Menlo, Monaco, "Courier New", Courier, monospace;}
 .codehilite .c { color: #0099FF; font-style: italic } /* Comment */
 .codehilite .err { color: #AA0000; background-color: #FFAAAA } /* Error */
 .codehilite .k { color: #006699; font-weight: bold } /* Keyword */
