@@ -65,7 +65,7 @@
       <li class="list-group-item card-list-title">Tag</li>
       <li class="list-group-item">
         <a href="{% url 'article:index' %}">
-          All
+          All ({{ articles.paginator.count }})
         </a>
       </li>
       {% for tag in tags %}
