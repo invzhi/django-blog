@@ -1,5 +1,7 @@
 # invzhi.com source code
 
+[![License](https://img.shields.io/github/license/invzhi/invzhi.me.svg)](LICENSE)
+
 1. Create a Python3 virtualenv:
 
    ```bash
