@@ -83,9 +83,5 @@ def search(request):
     return render(request, 'article/articles.html', context)
 
 
-def about(request):
-    context = {
-        # 'article': article,
-        # 'tags': tags,
-    }
-    return render(request, 'article/about.html', context)
+class AboutView(generic.TemplateView):
+    template_name = 'article/about.html'
