@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <small class="text-muted">Last Modified: {{ article.last_modified|date:'M j, Y' }}</small>
+      <small class="text-muted">Last Modified: {{ article.last_modified|timesince }} ago</small>
     </div>
   </div>
 {% endblock %}
