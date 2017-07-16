@@ -69,6 +69,14 @@ class ArticleListView(ListView):
     queryset = Article.objects.order_by('-first_commit')
 
 
+class TagArticleListView(ListView):
+    template_name = 'article/article_list'
+
+    def get_queryset(self):
+        self.tag = get_object_or_404(Tag, name=self.args[0])
+        return Article.objects.filter(tags=self.tag)
+
+
 class ArticleDetailView(DetailView):
     model = Article
 
