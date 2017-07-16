@@ -19,9 +19,6 @@ class Article(models.Model):
     first_commit = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now_add=True)  # TODO: admin save() update time
 
-    class Meta:
-        ordering = ["-first_commit"]
-
     def __str__(self):
         return self.title
 
@@ -29,7 +26,7 @@ class Article(models.Model):
         return self.content[:self.content.find('\n')]
 
     def reading_time(self):
-        return len(self.content) // 1000
+        return 5  # TODO
 
     def increase_views(self):
         self.views += 1

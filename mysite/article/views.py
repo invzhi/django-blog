@@ -1,6 +1,6 @@
-from django.views import generic
+from django.views.generic import ListView, DetailView, TemplateView
 from django.http import QueryDict
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Article, Tag
@@ -65,21 +65,29 @@ def index(request):
     return render(request, 'article/articles.html', context)
 
 
-class ArticleDetail(generic.DetailView):
+class ArticleListView(ListView):
+    queryset = Article.objects.order_by('-first_commit')
+
+
+class ArticleDetailView(DetailView):
     model = Article
 
     def get(self, request, *args, **kwargs):
-        response = super(ArticleDetail, self).get(self, request, *args, **kwargs)
+        response = super(ArticleDetailView, self).get(self, request, *args, **kwargs)
         self.object.increase_views()
         return response
 
 
-def search(request):
-    q = request.GET.get('q')
-    # TODO
-    context = {}
-    return render(request, 'article/articles.html', context)
+# def search(request):
+#     q = request.GET.get('q')
+#     # TODO
+#     context = {}
+#     return render(request, 'article/articles.html', context)
 
 
-class AboutView(generic.TemplateView):
+class SearchView(ListView):
+    model = Article
+
+
+class AboutView(TemplateView):
     template_name = 'article/about.html'

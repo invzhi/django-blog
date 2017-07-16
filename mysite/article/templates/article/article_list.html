@@ -2,7 +2,7 @@
 {% load markdown2html %}
 {% block title %}Articles{% endblock %}
 {% block content %}
-  {% for article in articles %}
+  {% for article in article_list %}
     <div class="card">
       <div class="card-block">
         <h4 class="card-title">{{ article.title }}</h4>
