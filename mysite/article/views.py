@@ -37,8 +37,6 @@ def index(request):
     if date:
         articles = articles.filter(**date)
 
-    articles = articles.order_by('-first_commit')
-
     paginator = Paginator(articles, per_page)
 
     try:
