@@ -27,7 +27,3 @@ class Article(models.Model):
 
     def reading_time(self):
         return 5  # TODO
-
-    def increase_views(self):
-        self.views += 1
-        self.save()

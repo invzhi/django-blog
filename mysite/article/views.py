@@ -72,10 +72,11 @@ class ArticleListView(ListView):
 class ArticleDetailView(DetailView):
     model = Article
 
-    def get(self, request, *args, **kwargs):
-        response = super(ArticleDetailView, self).get(self, request, *args, **kwargs)
-        self.object.increase_views()
-        return response
+    def get_object(self):
+        object = super(ArticleDetailView, self).get_object()
+        object.views += 1
+        object.save()
+        return object
 
 
 # def search(request):
