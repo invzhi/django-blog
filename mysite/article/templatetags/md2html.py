@@ -6,7 +6,7 @@ register = template.Library()
 
 
 @register.filter
-def markdown2html(markdown_text):
+def md2html(markdown_text):
     html = markdown.markdown(markdown_text, output_format='html5',
                              extensions=['markdown.extensions.abbr',
                                          'markdown.extensions.fenced_code',

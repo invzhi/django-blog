@@ -1,5 +1,5 @@
 {% extends 'article/base.html' %}
-{% load markdown2html %}
+{% load md2html %}
 {% block title %}Articles{% endblock %}
 {% block content %}
   {% for article in article_list %}
@@ -11,7 +11,7 @@
           <a class="badge badge-default" href="{% url 'article:tag-article-list' tag.name %}">{{ tag.name }}</a>
         {% endfor %}
         </h6>
-        <p class="card-text">{{ article.summary|markdown2html }}</p>
+        <p class="card-text">{{ article.summary|md2html }}</p>
         <a href="{% url 'article:article-detail' article.id %}" class="card-link">Detail</a>
       </div>
       <div class="card-footer">

@@ -6,7 +6,7 @@ register = template.Library()
 
 
 @register.filter
-def markdown2toc(markdown_text):
+def md2toc(markdown_text):
     md = markdown.Markdown(extensions=['markdown.extensions.fenced_code', 'markdown.extensions.toc'])
     md.convert(markdown_text)
     toc = md.toc
