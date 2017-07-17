@@ -5,7 +5,7 @@
   <a class="navbar-brand" href="{% url 'article:article-list' %}">INVZHI</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item{% if 'about' not in request.path %} active{% endif %}">
+      <li class="nav-item{% if 'article' in request.path %} active{% endif %}">
         <a class="nav-link" href="{% url 'article:article-list' %}">Articles</a>
       </li>
       <li class="nav-item{% if 'about' in request.path %} active{% endif %}">

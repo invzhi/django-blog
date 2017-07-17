@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block container %}
+  <div class="row">
+    <div class="col-12 col-md-9">
+    {% block content %}{% endblock %}
+    </div>
+    <div class="col-12 col-md-3">
+    {% block sidebar %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}

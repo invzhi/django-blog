@@ -8,7 +8,7 @@
   <link rel="icon" sizes="512x512" href="{% static 'article/img/icon.png' %}">
   <link rel="shortcut icon" href="{% static 'article/img/favicon.ico' %}">
 
-  <title>{% block title %}Home{% endblock %} | INVZHI</title>
+  <title>{% block title %}Just in action{% endblock %} | INVZHI</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'article/css/style.css' %}">
@@ -17,14 +17,8 @@
 <body>
   {% include 'article/includes/navbar.html' %}
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-9">
-      {% block content %}{% endblock %}
-      </div>
-      <div class="col-12 col-md-3">
-      {% block sidebar %}{% endblock %}
-      </div>
-    </div>
+    {% block container %}
+    {% endblock %}
   </div>
   <!--<footer class="footer">-->
     <!--<div class="container">-->
