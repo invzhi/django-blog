@@ -10,7 +10,7 @@
         <h4 class="card-title">{{ article.title }}</h4>
         <h6 class="card-subtitle mb-2 text-muted">
         {% for tag in article.tags.all %}
-          <a class="badge badge-default" href="{% url 'article:tag-article-list' tag.name %}">{{ tag.name }}</a>
+          <a class="badge badge-default" href="{% url 'article:tag-article-list' tag %}">{{ tag }}</a>
         {% endfor %}
         </h6>
         <p class="card-text">{{ article.summary|md2html }}</p>

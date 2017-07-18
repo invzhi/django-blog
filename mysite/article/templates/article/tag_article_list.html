@@ -15,9 +15,9 @@
         <h6 class="card-subtitle mb-2 text-muted">
         {% for tag in article.tags.all %}
           {% if tag == current_tag %}
-            <a class="badge badge-success" href="{% url 'article:tag-article-list' tag.name %}">{{ tag.name }}</a>
+            <a class="badge badge-success" href="{% url 'article:tag-article-list' tag %}">{{ tag }}</a>
           {% else %}
-            <a class="badge badge-default" href="{% url 'article:tag-article-list' tag.name %}">{{ tag.name }}</a>
+            <a class="badge badge-default" href="{% url 'article:tag-article-list' tag %}">{{ tag }}</a>
           {% endif %}
         {% endfor %}
         </h6>
