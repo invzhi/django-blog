@@ -24,22 +24,6 @@
   {% include 'article/includes/pagintor.html' %}
 {% endblock %}
 {% block sidebar %}
-  <div class="card">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item card-list-title">Tag</li>
-      <li class="list-group-item active">
-        <a href="{% url 'article:article-list' %}">
-          All ({{ paginator.count }})
-        </a>
-      </li>
-      {% for tag in tags %}
-        <li class="list-group-item">
-          <a href="{% url 'article:tag-article-list' tag.name %}">
-            {{ tag.name }} ({{ tag.article_set.count }})
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% include 'article/includes/links.html' %}
+  {% include 'article/includes/tag_list.html' with article_count=paginator.count %}
+  {% include 'article/includes/link_list.html' %}
 {% endblock %}
