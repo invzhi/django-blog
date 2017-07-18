@@ -1,6 +1,8 @@
 {% extends 'base_2col.html' %}
 {% load md2html %}
+
 {% block title %}Articles{% endblock %}
+
 {% block content %}
   {% for article in article_list %}
     <div class="card">
@@ -23,6 +25,7 @@
   {% endfor %}
   {% include 'article/includes/pagintor.html' %}
 {% endblock %}
+
 {% block sidebar %}
   {% include 'article/includes/tag_list.html' with article_count=paginator.count %}
   {% include 'article/includes/link_list.html' %}
