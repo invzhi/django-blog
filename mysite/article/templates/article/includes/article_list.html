@@ -1,0 +1,24 @@
+{% load md2html %}
+{% for article in article_list %}
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">{{ article.title }}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">
+      {% for tag in article.tags.all %}
+        {% if tag == current_tag %}
+          <a class="badge badge-success" href="{% url 'article:tag-article-list' tag %}">{{ tag }}</a>
+        {% else %}
+          <a class="badge badge-default" href="{% url 'article:tag-article-list' tag %}">{{ tag }}</a>
+        {% endif %}
+      {% endfor %}
+      </h6>
+      <p class="card-text">{{ article.summary|md2html }}</p>
+      <a href="{% url 'article:article-detail' article.id %}" class="card-link">Detail</a>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ article.first_commit|date:'M j, Y' }} · {{ article.reading_time }} min read</small>
+    </div>
+  </div>
+{% empty %}
+  <p>No articles here.</p>
+{% endfor %}

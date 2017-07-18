@@ -1,28 +1,9 @@
 {% extends 'base_2col.html' %}
-{% load md2html %}
 
 {% block title %}Articles{% endblock %}
 
 {% block content %}
-  {% for article in article_list %}
-    <div class="card">
-      <div class="card-block">
-        <h4 class="card-title">{{ article.title }}</h4>
-        <h6 class="card-subtitle mb-2 text-muted">
-        {% for tag in article.tags.all %}
-          <a class="badge badge-default" href="{% url 'article:tag-article-list' tag %}">{{ tag }}</a>
-        {% endfor %}
-        </h6>
-        <p class="card-text">{{ article.summary|md2html }}</p>
-        <a href="{% url 'article:article-detail' article.id %}" class="card-link">Detail</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">{{ article.first_commit|date:'M j, Y' }} · {{ article.reading_time }} min read</small>
-      </div>
-    </div>
-  {% empty %}
-    <p>No articles here.</p>
-  {% endfor %}
+  {% include 'article/includes/article_list.html' %}
   {% include 'article/includes/pagintor.html' %}
 {% endblock %}
 
