@@ -7,7 +7,7 @@ from .models import Article, Tag
 class ArticleListView(ListView):
     model = Article
     ordering = ['-first_commit']
-    paginate_by = 5
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
@@ -16,16 +16,18 @@ class ArticleListView(ListView):
 
 
 class TagArticleListView(ListView):
-    template_name = 'article/article_list'
+    template_name = 'article/tag_article_list.html'
+    paginate_by = 10
 
     def get_queryset(self):
         self.tag = get_object_or_404(Tag, name=self.args[0])
-        return Article.objects.filter(tags=self.tag)
+        return Article.objects.filter(tags=self.tag).order_by('-first_commit')
 
     def get_context_data(self, **kwargs):
         context = super(TagArticleListView, self).get_context_data(**kwargs)
         context['current_tag'] = self.tag
         context['tags'] = Tag.objects.all()
+        context['article_count'] = Article.objects.count()
         return context
 
 

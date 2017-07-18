@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block container %}
   <div class="row">
+    <div class="col-12 col-md-12">
+      {% block banner %}{% endblock %}
+    </div>
     <div class="col-12 col-md-9">
       {% block content %}{% endblock %}
     </div>

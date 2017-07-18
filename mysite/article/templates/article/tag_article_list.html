@@ -1,6 +1,9 @@
-{% extends 'base_2col.html' %}
+{% extends 'base_3col.html' %}
 {% load md2html %}
-{% block title %}Articles{% endblock %}
+{% block title %}{{ current_tag }} | Articles{% endblock %}
+{% block banner %}
+  <h1 align="center">{{ current_tag }}</h1>
+{% endblock %}
 {% block content %}
   {% for article in article_list %}
     <div class="card">
@@ -8,7 +11,11 @@
         <h4 class="card-title">{{ article.title }}</h4>
         <h6 class="card-subtitle mb-2 text-muted">
         {% for tag in article.tags.all %}
-          <a class="badge badge-default" href="{% url 'article:tag-article-list' tag.name %}">{{ tag.name }}</a>
+          {% if tag == current_tag %}
+            <a class="badge badge-success" href="{% url 'article:tag-article-list' tag.name %}">{{ tag.name }}</a>
+          {% else %}
+            <a class="badge badge-default" href="{% url 'article:tag-article-list' tag.name %}">{{ tag.name }}</a>
+          {% endif %}
         {% endfor %}
         </h6>
         <p class="card-text">{{ article.summary|md2html }}</p>
@@ -27,17 +34,23 @@
   <div class="card">
     <ul class="list-group list-group-flush">
       <li class="list-group-item card-list-title">Tag</li>
-      <li class="list-group-item active">
+      <li class="list-group-item">
         <a href="{% url 'article:article-list' %}">
-          All ({{ paginator.count }})
+          All ({{ article_count }})
         </a>
       </li>
       {% for tag in tags %}
-        <li class="list-group-item">
-          <a href="{% url 'article:tag-article-list' tag.name %}">
+        {% if tag == current_tag %}
+          <li class="list-group-item active">
             {{ tag.name }} ({{ tag.article_set.count }})
-          </a>
-        </li>
+          </li>
+        {% else %}
+          <li class="list-group-item">
+            <a href="{% url 'article:tag-article-list' tag.name %}">
+              {{ tag.name }} ({{ tag.article_set.count }})
+            </a>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>
