@@ -3,11 +3,11 @@
 {% block title %}Articles{% endblock %}
 
 {% block content %}
-  {% include 'article/includes/article_list.html' %}
+  {% include 'article/includes/article_cards.html' %}
   {% include 'article/includes/pagintor.html' %}
 {% endblock %}
 
 {% block sidebar %}
-  {% include 'article/includes/tag_list.html' with article_count=paginator.count %}
-  {% include 'article/includes/link_list.html' %}
+  {% include 'article/includes/tag_card.html' with article_count=paginator.count %}
+  {% include 'article/includes/link_cards.html' %}
 {% endblock %}
