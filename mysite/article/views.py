@@ -35,10 +35,10 @@ class ArticleDetailView(DetailView):
     model = Article
 
     def get_object(self):
-        object = super(ArticleDetailView, self).get_object()
-        object.views += 1
-        object.save()
-        return object
+        obj = super(ArticleDetailView, self).get_object()
+        obj.views += 1
+        obj.save()
+        return obj
 
 
 # def search(request):
