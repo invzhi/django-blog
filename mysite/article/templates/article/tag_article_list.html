@@ -1,6 +1,6 @@
 {% extends 'base_3col.html' %}
 
-{% block title %}{{ current_tag }} | Articles{% endblock %}
+{% block title %}{{ current_tags|join:', ' }} | Articles{% endblock %}
 
 {% block banner %}
   <!--<h1 align="center">{{ current_tag }}</h1>-->

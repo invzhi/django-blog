@@ -19,13 +19,21 @@ class TagArticleListView(ListView):
     template_name = 'article/tag_article_list.html'
     paginate_by = 10
 
+    def __init__(self):
+        self.tags = []
+
     def get_queryset(self):
-        self.tag = get_object_or_404(Tag, name=self.args[0])
-        return Article.objects.filter(tags=self.tag).order_by('-first_commit')
+        articles = Article.objects
+        tags_name = self.args[0].split('/')
+        for tag_name in tags_name:
+            tag = get_object_or_404(Tag, name=tag_name)
+            self.tags.append(tag)
+            articles = articles.filter(tags=tag)
+        return articles.order_by('-first_commit')
 
     def get_context_data(self, **kwargs):
         context = super(TagArticleListView, self).get_context_data(**kwargs)
-        context['current_tag'] = self.tag
+        context['current_tags'] = self.tags
         context['tags'] = Tag.objects.all()
         context['article_count'] = Article.objects.count()
         return context

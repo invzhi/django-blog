@@ -2,11 +2,11 @@
   <div class="list-group list-group-flush">
     <a class="list-group-item card-list-title">Tag</a>
     <a href="{% url 'article:article-list' %}"
-       class="list-group-item list-group-item-action justify-content-between{% if current_tag is None %} active{% endif %}">
+       class="list-group-item list-group-item-action justify-content-between{% if current_tags is None %} active{% endif %}">
       All<span class="badge badge-default badge-pill">{{ article_count }}</span>
     </a>
     {% for tag in tags %}
-      {% if tag == current_tag %}
+      {% if tag in current_tags %}
         <a href="#" class="list-group-item list-group-item-action justify-content-between active">
           {{ tag }}<span class="badge badge-default badge-pill">{{ tag.article_set.count }}</span>
         </a>
