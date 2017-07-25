@@ -1,6 +1,5 @@
 *.pyc
 *.json
-/mysite/article/migrations/*
-/mysite/static/
+/static/
 /venv/
 /.idea/
