@@ -15,7 +15,7 @@ class ArticleListView(ListView):
         return context
 
 
-class TagArticleListView(ListView):
+class TaggedArticleListView(ListView):
     template_name = 'article/tag_article_list.html'
     paginate_by = 10
 
@@ -32,7 +32,7 @@ class TagArticleListView(ListView):
         return articles.order_by('-first_commit')
 
     def get_context_data(self, **kwargs):
-        context = super(TagArticleListView, self).get_context_data(**kwargs)
+        context = super(TaggedArticleListView, self).get_context_data(**kwargs)
         context['current_tags'] = self.tags
         context['tags'] = Tag.objects.all()
         context['article_count'] = Article.objects.count()
