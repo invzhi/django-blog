@@ -24,7 +24,7 @@ class TagArticleListView(ListView):
 
     def get_queryset(self):
         articles = Article.objects
-        tags_name = self.args[0].split('/')
+        tags_name = self.args[0].split('+')
         for tag_name in tags_name:
             tag = get_object_or_404(Tag, name=tag_name)
             self.tags.append(tag)
