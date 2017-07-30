@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Tag(models.Model):
@@ -6,6 +7,9 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('article:tagged-article-list', args=[self.name])
 
 
 class Article(models.Model):
@@ -21,6 +25,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('article:article-detail', args=[self.id])
 
     def summary(self):
         return self.content[:self.content.find('\n')]
