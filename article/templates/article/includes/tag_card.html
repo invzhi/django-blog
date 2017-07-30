@@ -11,7 +11,7 @@
           {{ tag }}<span class="badge badge-default badge-pill">{{ tag.article_set.count }}</span>
         </a>
       {% else %}
-        <a href="{% url 'article:tagged-article-list' tag %}"
+        <a href="{{ tag.get_absolute_url }}"
            class="list-group-item list-group-item-action justify-content-between">
           {{ tag }}<span class="badge badge-default badge-pill">{{ tag.article_set.count }}</span>
         </a>

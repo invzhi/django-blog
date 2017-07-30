@@ -6,14 +6,14 @@
       <h6 class="card-subtitle mb-2 text-muted">
       {% for tag in article.tags.all %}
         {% if tag in current_tags %}
-          <a class="badge badge-success" href="{% url 'article:tagged-article-list' tag %}">{{ tag }}</a>
+          <a class="badge badge-success" href="{{ tag.get_absolute_url }}">{{ tag }}</a>
         {% else %}
-          <a class="badge badge-default" href="{% url 'article:tagged-article-list' tag %}">{{ tag }}</a>
+          <a class="badge badge-default" href="{{ tag.get_absolute_url }}">{{ tag }}</a>
         {% endif %}
       {% endfor %}
       </h6>
       <p class="card-text">{{ article.summary|md2html }}</p>
-      <a href="{% url 'article:article-detail' article.id %}" class="card-link">Detail</a>
+      <a href="{{ article.get_absolute_url }}" class="card-link">Detail</a>
     </div>
     <div class="card-footer">
       <small class="text-muted">{{ article.first_commit|date:'M j, Y' }} · {{ article.reading_time }} min read</small>
