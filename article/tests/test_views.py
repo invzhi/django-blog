@@ -39,5 +39,5 @@ class ViewTest(TestCase):
         self.assertEqual(resp.status_code, 200)
 
     def test_about_view(self):
-        resp = self.client.get(reverse('article:about'))
+        resp = self.client.get(reverse('about'))
         self.assertEqual(resp.status_code, 200)

@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 
 from .models import Article, Tag
@@ -58,7 +58,3 @@ class ArticleDetailView(DetailView):
 
 class SearchView(ListView):
     model = Article
-
-
-class AboutView(TemplateView):
-    template_name = 'article/about.html'
