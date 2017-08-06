@@ -9,7 +9,7 @@
         <a class="nav-link" href="{% url 'article:article-list' %}">Articles</a>
       </li>
       <li class="nav-item{% if 'about' in request.path %} active{% endif %}">
-        <a class="nav-link" href="{% url 'article:about' %}">About</a>
+        <a class="nav-link" href="{% url 'about' %}">About</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{% url 'article:search' %}" method="get">
