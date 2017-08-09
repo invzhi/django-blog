@@ -1,9 +1,6 @@
 from django.conf.urls import url
 
-from .views import ArticleListView
-from .views import ArticleDetailView
-from .views import TaggedArticleListView
-from .views import SearchView
+from .views import ArticleListView, ArticleDetailView, TaggedArticleListView, SearchView
 
 app_name = 'article'
 urlpatterns = [
