@@ -1,5 +1,4 @@
 *.pyc
 *.json
-/static/
 /venv/
 /.idea/
