@@ -1,6 +1,8 @@
 from random import random
+
 from django.shortcuts import reverse
 from django.test import TestCase
+
 from ..models import Article, Tag
 
 
