@@ -1,6 +1,6 @@
-# invzhi.com source code
+# invzhi.me source code
 
-[![License](https://img.shields.io/github/license/invzhi/invzhi.me.svg)](LICENSE)
+[![Build Status](https://travis-ci.org/invzhi/invzhi.me.svg?branch=master)](https://travis-ci.org/invzhi/invzhi.me) [![License](https://img.shields.io/github/license/invzhi/invzhi.me.svg)](LICENSE)
 
 1. Create a Python3 virtualenv:
 
