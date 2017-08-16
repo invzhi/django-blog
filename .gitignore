@@ -1,3 +1,12 @@
-*.pyc
-/venv/
-/.idea/
+# Python
+__pycache__/
+*.py[cod]
+
+# collectstatic
+staticfiles/
+
+# Environments
+venv/
+
+# PyCharm
+.idea/
