@@ -1,0 +1,39 @@
+# top-most EditorConfig file
+root = true
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Set default charset
+[*.{js,py}]
+charset = utf-8
+
+# Python
+[*.py]
+indent_size = 4
+indent_style = space
+
+# HTML
+[*.html]
+indent_size = 2
+indent_style = space
+
+# CSS, SCSS, STYL
+[*.{css,scss}]
+indent_size = 4
+indent_style = space
+
+# Javascript
+[*.{js,json}]
+indent_size = 2
+indent_style = space
+
+# .travis.yml
+[.travis.yml]
+indent_size = 2
+indent_style = space
