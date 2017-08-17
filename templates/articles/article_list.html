@@ -1,0 +1,13 @@
+{% extends 'base_2col.html' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block content %}
+  {% include 'articles/includes/article_cards.html' %}
+  {% include 'articles/includes/pagintor.html' %}
+{% endblock %}
+
+{% block sidebar %}
+  {% include 'articles/includes/tag_card.html' with article_count=paginator.count %}
+  {% include 'articles/includes/link_cards.html' %}
+{% endblock %}

@@ -2,7 +2,7 @@ from django.conf.urls import url
 
 from .views import ArticleListView, ArticleDetailView, TaggedArticleListView, SearchView
 
-app_name = 'article'
+app_name = 'articles'
 urlpatterns = [
     url(r'^$', ArticleListView.as_view(), name='article-list'),
     url(r'^tagged/([\w\+-]+)/$', TaggedArticleListView.as_view(), name='tagged-article-list'),
