@@ -1,4 +1,4 @@
-from random import random
+from random import randint
 
 from django.shortcuts import reverse
 from django.test import TestCase
@@ -18,7 +18,7 @@ class ViewTest(TestCase):
                                              content='Content %s\nThis is a article for django test.' % article_num)
             random_tags = []
             for tag in self.tags:
-                if random() < 0.5:
+                if randint(0, 1):
                     random_tags.append(tag)
             article.tags.add(*random_tags)
 
