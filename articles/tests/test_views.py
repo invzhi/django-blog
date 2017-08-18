@@ -14,8 +14,10 @@ class ViewTest(TestCase):
             Tag.objects.create(name='tag%s' % tag_num)
         self.tags = Tag.objects.all()
         for article_num in range(number_of_articles):
-            article = Article.objects.create(title='Article %s' % article_num,
-                                             content='Content %s\nThis is a article for django test.' % article_num)
+            article = Article.objects.create(
+                title='Article %s' % article_num,
+                content='Content %s\nThis is a article for django test.' % article_num
+            )
             random_tags = []
             for tag in self.tags:
                 if randint(0, 3) == 0:
