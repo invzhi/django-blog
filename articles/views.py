@@ -19,15 +19,15 @@ class TaggedArticleListView(ListView):
     template_name = 'articles/tag_article_list.html'
     paginate_by = 10
 
-    def __init__(self):
-        self.tags = []
+    def tags(self):
+        tag_list = self.kwargs['tags_with_plus'].split('+')
+        for tag_name in set(tag_list):
+            tag = get_object_or_404(Tag, name=tag_name)
+            yield tag
 
     def get_queryset(self):
         articles = Article.objects
-        tags_name = self.args[0].split('+')
-        for tag_name in tags_name:
-            tag = get_object_or_404(Tag, name=tag_name)
-            self.tags.append(tag)
+        for tag in self.tags():
             articles = articles.filter(tags=tag)
         return articles.order_by('-first_commit')
 
