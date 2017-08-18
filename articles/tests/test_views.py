@@ -26,17 +26,17 @@ class ViewTest(TestCase):
             article.tags.add(*random_tags)
 
     def test_article_list_view(self):
-        resp = self.client.get(reverse('articles:article-list'))
+        resp = self.client.get(reverse('articles:list'))
         self.assertEqual(resp.status_code, 200)
 
     def test_tagged_article_list_view(self):
         for tag in Tag.objects.iterator():
-            resp = self.client.get(reverse('articles:tagged-article-list', args=[tag]))
+            resp = self.client.get(reverse('articles:tagged-list', args=[tag]))
             self.assertEqual(resp.status_code, 200)
 
     def test_article_detail_view(self):
         for article in Article.objects.iterator():
-            resp = self.client.get(reverse('articles:article-detail', args=[article.id]))
+            resp = self.client.get(reverse('articles:detail', args=[article.id]))
             self.assertEqual(resp.status_code, 200)
 
     def test_search_view(self):

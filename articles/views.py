@@ -16,7 +16,7 @@ class ArticleListView(ListView):
 
 
 class TaggedArticleListView(ListView):
-    template_name = 'articles/tag_article_list.html'
+    template_name = 'articles/tagged_article_list.html'
     paginate_by = 10
 
     def tags(self):
