@@ -3,7 +3,7 @@ from random import randint
 from django.shortcuts import reverse
 from django.test import TestCase
 
-from ..models import Article, Tag
+from articles.models import Article, Tag
 
 
 class ViewTest(TestCase):
@@ -15,7 +15,7 @@ class ViewTest(TestCase):
         for article_num in range(number_of_articles):
             article = Article.objects.create(
                 title='Article %s' % article_num,
-                content='Content %s\nThis is a article for django test.' % article_num
+                content='Content %s\nArticle for django test.' % article_num
             )
             random_tags = []
             for tag in Tag.objects.iterator():

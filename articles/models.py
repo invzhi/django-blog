@@ -21,7 +21,7 @@ class Article(models.Model):
     likes = models.PositiveIntegerField(default=0)
     # DateTime
     first_commit = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(auto_now_add=True)  # TODO: admin save() update time
+    last_modified = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

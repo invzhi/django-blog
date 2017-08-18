@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Tag, Article
+from articles.models import Tag, Article
 
 
 class TagsArticleInline(admin.TabularInline):
