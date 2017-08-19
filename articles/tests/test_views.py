@@ -7,6 +7,16 @@ from articles.models import Article, Tag
 
 
 class ViewTest(TestCase):
+    @staticmethod
+    def random_tags(one_of=4):
+        empty = True
+        for tag in Tag.objects.iterator():
+            if randint(0, one_of - 1) == 0:
+                empty = False
+                yield tag
+        if empty:
+            yield Tag.objects.first()
+
     def setUp(self):
         number_of_tags = 10
         number_of_articles = 50
@@ -17,12 +27,7 @@ class ViewTest(TestCase):
                 title='Article %s' % article_num,
                 content='Content %s\nArticle for django test.' % article_num
             )
-            random_tags = []
-            for tag in Tag.objects.iterator():
-                if randint(0, 3) == 0:
-                    random_tags.append(tag)
-            if not random_tags:
-                random_tags.append(Tag.objects.first())
+            random_tags = self.random_tags()
             article.tags.add(*random_tags)
 
     def test_article_list_view(self):
