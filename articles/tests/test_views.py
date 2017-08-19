@@ -17,9 +17,11 @@ class ViewTest(TestCase):
         if empty:
             yield Tag.objects.first()
 
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         number_of_tags = 10
         number_of_articles = 50
+
         for tag_num in range(number_of_tags):
             Tag.objects.create(name='tag%s' % tag_num)
         for article_num in range(number_of_articles):
@@ -27,7 +29,7 @@ class ViewTest(TestCase):
                 title='Article %s' % article_num,
                 content='Content %s\nArticle for django test.' % article_num
             )
-            random_tags = self.random_tags()
+            random_tags = cls.random_tags()
             article.tags.add(*random_tags)
 
     def test_article_list_view(self):
