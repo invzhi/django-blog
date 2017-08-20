@@ -12,6 +12,7 @@ class ArticleListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
         context['tags'] = Tag.objects.iterator()
+        context['article_count'] = Article.objects.count()
         return context
 
 
