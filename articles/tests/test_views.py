@@ -47,8 +47,7 @@ class ViewTest(TestCase):
 
     def test_tagged_article_list_view(self):
         for tag in Tag.objects.iterator():
-            url = reverse('articles:tagged-list',
-                          kwargs={'tags_with_plus': tag})
+            url = tag.get_absolute_url()
             resp = self.client.get(url)
             self.assertEqual(resp.status_code, 200)
             self.assertTemplateUsed(resp, 'includes/navbar.html')
@@ -62,7 +61,7 @@ class ViewTest(TestCase):
 
     def test_article_detail_view(self):
         for article in Article.objects.iterator():
-            url = reverse('articles:detail', kwargs={'pk': article.id})
+            url = article.get_absolute_url()
             resp = self.client.get(url)
             self.assertEqual(resp.status_code, 200)
             self.assertTemplateUsed(resp, 'includes/navbar.html')
