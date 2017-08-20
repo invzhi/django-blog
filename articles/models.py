@@ -9,7 +9,8 @@ class Tag(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('articles:tagged-list', args=[self.name])
+        return reverse('articles:tagged-list',
+                       kwargs={'tags_with_plus': self.name})
 
 
 class Article(models.Model):
@@ -27,7 +28,7 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('articles:detail', args=[self.id])
+        return reverse('articles:detail', kwargs={'pk': self.pk})
 
     def summary(self):
         return self.content[:self.content.find('\n')]
