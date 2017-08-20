@@ -4,31 +4,30 @@ from articles.models import Article, Tag
 
 
 class TagTest(TestCase):
-    def setUp(self):
-        Tag.objects.create(name='tag1')
+    @classmethod
+    def setUpTestData(cls):
+        cls.tag = Tag.objects.create(name='test_tag')
 
     def test_get_absolute_url(self):
-        tag = Tag.objects.get(name='tag1')
         self.assertEqual(
-            tag.get_absolute_url(),
-            '/articles/tagged/%s/' % tag.name
+            self.tag.get_absolute_url(),
+            '/articles/tagged/%s/' % self.tag.name,
         )
 
 
 class ArticleTest(TestCase):
-    def setUp(self):
-        Article.objects.create(
-            title='article1',
-            content='Hello Django\nThis is a article for django development.'
+    @classmethod
+    def setUpTestData(cls):
+        cls.article = Article.objects.create(
+            title='Test Article',
+            content='Hello\nArticle for django test.',
         )
 
     def test_get_absolute_url(self):
-        article = Article.objects.get(title='article1')
         self.assertEqual(
-            article.get_absolute_url(),
-            '/articles/%s/' % article.id
+            self.article.get_absolute_url(),
+            '/articles/%s/' % self.article.id,
         )
 
-    def test_article_summary(self):
-        article = Article.objects.get(title='article1')
-        self.assertEqual(article.summary(), 'Hello Django')
+    def test_summary(self):
+        self.assertEqual(self.article.summary(), 'Hello')
