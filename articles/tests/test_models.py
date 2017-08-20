@@ -4,6 +4,7 @@ from articles.models import Article, Tag
 
 
 class TagTest(TestCase):
+
     @classmethod
     def setUpTestData(cls):
         cls.tag = Tag.objects.create(name='test_tag')
@@ -16,6 +17,7 @@ class TagTest(TestCase):
 
 
 class ArticleTest(TestCase):
+
     @classmethod
     def setUpTestData(cls):
         cls.article = Article.objects.create(

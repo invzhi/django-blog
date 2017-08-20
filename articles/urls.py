@@ -3,6 +3,7 @@ from django.conf.urls import url
 from articles.views import (ArticleListView, TaggedArticleListView,
                             ArticleDetailView, SearchView)
 
+
 app_name = 'articles'
 urlpatterns = [
     url(r'^$', ArticleListView.as_view(), name='list'),

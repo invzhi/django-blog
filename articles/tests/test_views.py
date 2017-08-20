@@ -7,6 +7,7 @@ from articles.models import Article, Tag
 
 
 class ViewTest(TestCase):
+
     @staticmethod
     def random_tags(one_of=4):
         is_empty = True
