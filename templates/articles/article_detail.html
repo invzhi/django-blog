@@ -11,7 +11,7 @@
       <h1 class="card-title">{{ article.title }}</h1>
       <h6 class="card-subtitle mb-2 text-muted">
         <span class="badge badge-primary">{{ article.first_commit|date:'M j, Y' }}</span>
-        {% for tag in article.tags.all %}
+        {% for tag in article.tags.iterator %}
           <a class="badge badge-default" href="{{ tag.get_absolute_url }}">{{ tag }}</a>
         {% endfor %}
       </h6>
