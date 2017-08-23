@@ -39,10 +39,10 @@ class ViewTest(TestCase):
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, 'includes/navbar.html')
         self.assertTemplateUsed(resp, 'articles/article_list.html')
-        self.assertTemplateUsed(resp, 'articles/includes/article_cards.html')
+        self.assertTemplateUsed(resp, 'articles/includes/articles.html')
         self.assertTemplateUsed(resp, 'articles/includes/pagination.html')
-        self.assertTemplateUsed(resp, 'articles/includes/tag_card.html')
-        self.assertTemplateUsed(resp, 'articles/includes/link_cards.html')
+        self.assertTemplateUsed(resp, 'articles/includes/tags.html')
+        self.assertTemplateUsed(resp, 'articles/includes/links.html')
         self.assertTrue(resp.context.get('is_paginated'))
 
     def test_tagged_article_list_view(self):
@@ -52,10 +52,10 @@ class ViewTest(TestCase):
             self.assertEqual(resp.status_code, 200)
             self.assertTemplateUsed(resp, 'includes/navbar.html')
             self.assertTemplateUsed(resp, 'articles/tagged_article_list.html')
-            self.assertTemplateUsed(resp, 'articles/includes/article_cards.html')
+            self.assertTemplateUsed(resp, 'articles/includes/articles.html')
             self.assertTemplateUsed(resp, 'articles/includes/pagination.html')
-            self.assertTemplateUsed(resp, 'articles/includes/tag_card.html')
-            self.assertTemplateUsed(resp, 'articles/includes/link_cards.html')
+            self.assertTemplateUsed(resp, 'articles/includes/tags.html')
+            self.assertTemplateUsed(resp, 'articles/includes/links.html')
             if tag.article_set.count() > 10:
                 self.assertTrue(resp.context.get('is_paginated'))
 
