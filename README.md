@@ -50,7 +50,7 @@ server {
     }
   
     location /static/ {
-        root /path_to_app/mysite;
+        root /path_to_app;
     }
 }
 ```
