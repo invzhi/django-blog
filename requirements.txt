@@ -1,4 +1,4 @@
-Django==1.11.4
+Django==1.11.6
 gunicorn==19.7.1
 Markdown==2.6.8
 Pygments==2.2.0
