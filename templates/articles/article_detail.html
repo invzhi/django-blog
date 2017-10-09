@@ -1,5 +1,4 @@
 {% extends 'base_2col.html' %}
-{% load md2html %}{% load md2toc %}
 
 {% block title %}{{ article.title }}{% endblock %}
 
@@ -16,7 +15,7 @@
         {% endfor %}
       </h6>
       <div class="card-text">
-        {{ article.content|md2html }}
+        {{ article.content|safe }}
       </div>
     </div>
     <div class="card-footer">
@@ -29,7 +28,7 @@
   <div class="card toc">
     <ul class="list-group list-group-flush">
       <li class="list-group-item card-list-title">Content</li>
-      {{ article.content|md2toc }}
+      {{ 'table of content' }}
     </ul>
   </div>
 {% endblock %}
