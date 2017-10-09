@@ -67,9 +67,8 @@ WSGI_APPLICATION = 'invzhi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'invzhi',
-        'CONN_MAX_AGE': 3,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

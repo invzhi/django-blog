@@ -4,8 +4,4 @@ python:
   - "3.6"
 sudo: false
 install: "pip install -r requirements.txt"
-services:
-  - postgresql
-before_script:
-  - psql -c 'create database invzhi;' -U postgres
 script: python manage.py test
